@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>원은빛 | (주)자리컴퍼니 자리톡 CX 매니저 지원 포트폴리오</title>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XSPYWH9QYF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XSPYWH9QYF');
+</script>
+
+  <!-- 기존 스타일 및 기타 태그 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal-deep: #0E3B3D;
+      --teal-deeper: #0A2C2D;
+      --teal-light: #1A5255;
+      --gold: #D9A441;
+      --gold-deep: #B9822B;
+      --bg-sand: #F4EFDF;
+      --border: #E2E8F0;
+      --text-main: #333333;
+      --text-sub: #666666;
+      --danger: #B4483C;
+      --success: #2E7D32;
+      --code-bg: #1E293B;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    input, textarea {
+      -webkit-user-select: auto !important;
+      -moz-user-select: auto !important;
+      -ms-user-select: auto !important;
+      user-select: auto !important;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #F1F5F9;
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* 포트폴리오 헤더 */
+    .pf-header {
+      background: #0D282A;
+      color: #FFFFFF;
+      padding: 24px 32px;
+      border-bottom: 3px solid var(--gold);
+    }
+    .pf-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .pf-title-area h1 {
+      margin: 0 0 6px 0;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .pf-title-area p {
+      margin: 0;
+      font-size: 14px;
+      color: #94A3B8;
+    }
+    .pf-badge-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pf-badge {
+      background: rgba(217, 164, 65, 0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* 탭 컨트롤러 */
+    .pf-tab-nav {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+    .pf-tab-btn {
+      background: none;
+      border: none;
+      padding: 16px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-sub);
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .pf-tab-btn:hover { color: var(--teal-deep); }
+    .pf-tab-btn.active { color: var(--teal-deep); }
+    .pf-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--teal-deep);
+    }
+
+    .pf-content-container {
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px;
+      flex: 1;
+    }
+    .pf-tab-pane { display: none; }
+    .pf-tab-pane.active { display: block; }
+
+    /* 문서 공통 디자인 */
+    .doc-section {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      margin-bottom: 24px;
+    }
+    .doc-section h2 {
+      margin: 0 0 16px 0;
+      font-size: 20px;
+      color: var(--teal-deep);
+      border-bottom: 2px solid #F1F5F9;
+      padding-bottom: 10px;
+      font-family: 'Noto Serif KR', serif;
+    }
+    .doc-section h3 {
+      font-size: 16px;
+      color: var(--teal-light);
+      margin: 20px 0 10px 0;
+    }
+    .doc-section p {
+      line-height: 1.7;
+      color: #475569;
+      margin: 0 0 16px 0;
+      font-size: 14.5px;
+    }
+
+    /* 지표 카드 그리드 */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .metric-card {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--teal-deep);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .metric-value {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--teal-deep);
+      margin-bottom: 6px;
+    }
+    .metric-label {
+      font-size: 13px;
+      color: var(--text-sub);
+      font-weight: 500;
+    }
+
+    /* 이력서 테이블 & 리스트 */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    .info-table th, .info-table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      font-size: 14px;
+    }
+    .info-table th {
+      background: #F8FAFC;
+      color: var(--teal-deep);
+      width: 180px;
+      font-weight: 700;
+    }
+
+    .project-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .project-box h4 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      color: var(--teal-deep);
+    }
+    .project-period {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-bottom: 12px;
+    }
+    .project-box ul {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: #334155;
+    }
+
+    /* 시뮬레이터 뷰어 컴포넌트 CSS */
+    .preview-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (max-width: 1024px) {
+      .preview-layout { grid-template-columns: 1fr; }
+    }
+
+    .preview-controller {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .preview-controller h3 {
+      margin: 0 0 16px 0;
+      font-size: 17px;
+      color: var(--teal-deep);
+      border-bottom: 2px solid #F1F5F9;
+      padding-bottom: 10px;
+    }
+    .ctrl-group { margin-bottom: 20px; }
+    .ctrl-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .page-switch-btn {
+      width: 100%;
+      text-align: left;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .page-switch-btn:hover { background: #EDF2F7; }
+    .page-switch-btn.active {
+      background: #E6F4F1;
+      border-color: var(--teal-deep);
+      color: var(--teal-deep);
+      font-weight: 700;
+    }
+
+    .mobile-viewer-wrap {
+      display: flex;
+      justify-content: center;
+      background: #E2E8F0;
+      padding: 30px 20px;
+      border-radius: 16px;
+      min-height: 820px;
+      transition: all 0.3s ease;
+    }
+    .mobile-frame {
+      width: 100%;
+      max-width: 460px;
+      background: #FFFFFF;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 8px solid #1E293B;
+      display: flex;
+      flex-direction: column;
+      transition: max-width 0.3s ease;
+    }
+    .mobile-frame.desktop-mode {
+      max-width: 900px;
+      border-radius: 16px;
+    }
+    .mobile-notch {
+      background: #1E293B;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .mobile-notch-bar {
+      width: 60px;
+      height: 4px;
+      background: #475569;
+      border-radius: 2px;
+    }
+    .mobile-viewport {
+      overflow-y: auto;
+      flex: 1;
+      max-height: 760px;
+      background-color: var(--bg-sand);
+    }
+    .mobile-viewport::-webkit-scrollbar { width: 4px; }
+    .mobile-viewport::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 2px; }
+
+    /* 임베디드 앱 페이지 공통 */
+    .live-app-page { display: none; background: #FFFFFF; min-height: 100%; position: relative; }
+    .live-app-page.active-page { display: block; }
+    .live-app-page .header {
+      background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-deeper) 100%);
+      padding: 36px 20px 28px;
+      text-align: center;
+      color: #FFFFFF;
+    }
+    .live-app-page .badge {
+      display: inline-block;
+      background-color: var(--gold);
+      color: var(--teal-deeper);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .live-app-page h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin: 0;
+      color: #FFFFFF;
+      word-break: keep-all;
+    }
+
+    /* 1번 릴레이 페이지 */
+    .hero-relay {
+      background: radial-gradient(120% 140% at 50% -10%, #144d4f 0%, var(--teal-deep) 55%, var(--teal-deeper) 100%);
+      color: #ffffff;
+      padding: 40px 20px 28px;
+      text-align: center;
+    }
+    .hero-relay .eyebrow {
+      font-size: 12.5px;
+      letter-spacing: .12em;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .hero-relay p {
+      font-size: 13.5px;
+      color: #DCEAE6;
+      margin: 12px auto 0;
+      line-height: 1.5;
+    }
+    .relay-row {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin: 20px 0 10px;
+      flex-wrap: wrap;
+    }
+    .candle { width: 16px; height: 28px; position: relative; opacity: .3; transition: opacity .4s ease; }
+    .candle.lit { opacity: 1; }
+    .candle .flame {
+      width: 8px;
+      height: 12px;
+      background: linear-gradient(180deg, #FFE49A, var(--gold) 60%, var(--gold-deep));
+      border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+      position: absolute;
+      left: 4px;
+      top: 0;
+      filter: drop-shadow(0 0 4px rgba(217, 164, 65, .8));
+      animation: flicker 2.4s ease-in-out infinite;
+    }
+    .candle:not(.lit) .flame { background: #3a4a49; filter: none; animation: none; }
+    .candle .stick { width: 4px; height: 14px; background: #EDE3C8; position: absolute; left: 6px; top: 11px; border-radius: 1px; }
+    @keyframes flicker {
+      0%, 100% { transform: scale(1) translateY(0); }
+      50% { transform: scale(1.08, 0.95) translateY(-1px); }
+    }
+    .counter { font-size: 13.5px; color: var(--gold); font-weight: 700; }
+    .relay-content { padding: 20px 18px 30px; }
+    .field { margin-bottom: 14px; }
+    .label { display: block; font-size: 12.5px; font-weight: 700; color: var(--teal-deep); margin-bottom: 5px; }
+    .input, .textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13.5px;
+      outline: none;
+    }
+    .input:focus, .textarea:focus { border-color: var(--teal-deep); }
+    .textarea { resize: vertical; min-height: 70px; }
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #F8F9FA;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 13px;
+      background: var(--teal-deep);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    /* 감사 및 현장소식 리포트 카드 디자인 */
+    .message-box {
+      margin: 18px 18px 0 18px;
+      padding: 20px;
+      background-color: #FAF8F5;
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+    }
+    .message-box .greeting { font-size: 16px; font-weight: 700; color: var(--teal-deep); margin-bottom: 8px; }
+    .message-box p { font-size: 13.5px; line-height: 1.6; color: var(--text-main); margin: 0 0 8px 0; word-break: keep-all; }
+    .message-box p:last-child { margin-bottom: 0; }
+    
+    .section-title { text-align: center; margin: 28px 0 14px 0; }
+    .section-title h2 { font-family: 'Noto Serif KR', serif; font-size: 17px; color: var(--teal-deep); margin: 0; font-weight: 700; }
+    
+    .video-wrapper {
+      margin: 0 18px 18px 18px;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    
+    .story-card { background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin: 0 18px 14px 18px; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+    .story-title { font-weight: 700; font-size: 15px; color: var(--teal-deep); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+    .story-card p { font-size: 13.5px; line-height: 1.6; color: var(--text-sub); margin: 0 0 8px 0; word-break: keep-all; }
+    .story-tag {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--teal-light);
+      background-color: #E8F0F0;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-right: 4px;
+      margin-top: 4px;
+    }
+
+    .gallery-container { position: relative; margin: 0 18px 18px 18px; }
+    .gallery-track {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding-bottom: 6px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-item {
+      flex: 0 0 85%;
+      scroll-snap-align: center;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background-color: #E2E8F0;
+    }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(14, 59, 61, 0.88), transparent);
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 16px 10px 8px 10px;
+      text-align: center;
+    }
+    .gallery-dots { display: flex; justify-content: center; gap: 6px; margin-top: 8px; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background-color: var(--border); transition: all 0.3s ease; }
+    .dot.active { background-color: var(--teal-deep); width: 18px; border-radius: 10px; }
+
+    .banner {
+      margin: 18px;
+      background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-light) 100%);
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 22px 16px;
+      text-align: center;
+    }
+    .banner h3 { font-family: 'Noto Serif KR', serif; margin: 0 0 6px 0; font-size: 16.5px; color: var(--gold); }
+    .banner p { margin: 0 0 16px 0; font-size: 13px; color: #E2E8F0; }
+    .btn-group { display: flex; flex-direction: column; gap: 8px; }
+    .btn-primary {
+      display: block;
+      background-color: var(--gold);
+      color: var(--teal-deeper);
+      text-decoration: none;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 26px;
+      text-align: center;
+    }
+    .btn-outline {
+      display: block;
+      background-color: transparent;
+      color: #ffffff;
+      border: 1px solid var(--gold);
+      text-decoration: none;
+      padding: 11px;
+      font-weight: 700;
+      font-size: 13.5px;
+      border-radius: 26px;
+      text-align: center;
+    }
+    .live-app-page .footer {
+      background-color: #F8FAFC;
+      padding: 18px;
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--text-sub);
+      border-top: 1px solid var(--border);
+    }
+
+    /* 관리자 백오피스 데모 */
+    .admin-demo-wrap { background: #F8F9FA; padding: 20px; min-height: 600px; }
+    .admin-login-card {
+      max-width: 360px;
+      margin: 30px auto;
+      background: #FFFFFF;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    .admin-login-card h2 { color: var(--teal-deep); margin: 0 0 14px 0; font-size: 18px; }
+    .admin-dashboard-panel { display: none; background: #FFFFFF; border-radius: 12px; padding: 20px; border: 1px solid var(--border); }
+    .admin-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .admin-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+    .btn-admin { padding: 7px 12px; border-radius: 6px; border: none; font-size: 12px; font-weight: 700; cursor: pointer; }
+    .btn-admin-excel { background: #107C41; color: #FFFFFF; }
+    .btn-admin-delete { background: var(--danger); color: #FFFFFF; }
+    .admin-data-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .admin-data-table th, .admin-data-table td { padding: 8px 6px; text-align: left; border-bottom: 1px solid var(--border); }
+    .admin-data-table th { background: #F1F5F9; color: var(--teal-deep); font-weight: 700; white-space: nowrap; }
+    .badge-stat { display: inline-block; padding: 2px 5px; border-radius: 4px; font-size: 10.5px; font-weight: 700; }
+    .badge-stat.agree { background: #E8F5E9; color: var(--success); }
+    .badge-stat.disagree { background: #FFEBEE; color: var(--danger); }
+    .btn-del-sm { background: #FFFFFF; border: 1px solid var(--danger); color: var(--danger); padding: 2px 5px; border-radius: 4px; font-size: 10.5px; cursor: pointer; }
+
+    .pf-main-footer {
+      background: #0D282A;
+      color: #94A3B8;
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 13px;
+      border-top: 1px solid #1E3A3C;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+
+  <!-- 헤더 -->
+  <header class="pf-header">
+    <div class="pf-header-top">
+      <div class="pf-title-area">
+        <h1>원은빛 | (주)자리컴퍼니 자리톡 CX 매니저 지원 포트폴리오</h1>
+        <p>VOC 분석과 CRM/CTI 및 응대 자동화 구축으로 고객 경험(CX)을 구조적으로 개선해 온 지원자입니다.</p>
+      </div>
+      <div class="pf-badge-group">
+        <span class="pf-badge">CS/CX 매니저 3년+</span>
+        <span class="pf-badge">CRM/CTI 연동</span>
+        <span class="pf-badge">VOC 구조화&amp;개선</span>
+        <span class="pf-badge">응대 자동화(AI/챗봇)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 메인 탭 네비게이션 -->
+  <nav class="pf-tab-nav">
+    <button class="pf-tab-btn active" onclick="switchPfTab(0)">📋 지원 요약 &amp; 역량 매칭</button>
+    <button class="pf-tab-btn" onclick="switchPfTab(1)">📄 상세 이력서</button>
+    <button class="pf-tab-btn" onclick="switchPfTab(2)">📁 CX 포트폴리오 (핵심 프로젝트)</button>
+    <button class="pf-tab-btn" onclick="switchPfTab(3)">💻 [프로젝트 예시] 위드헤브론 뷰어</button>
+  </nav>
+
+  <!-- 메인 컨테이너 -->
+  <main class="pf-content-container">
+
+    <!-- TAB 0: 지원 요약 & 역량 매칭 -->
+    <div class="pf-tab-pane active" id="tabPane0">
+      <div class="doc-section">
+        <h2>💡 (주)자리컴퍼니 자리톡 CX 매니저 맞춤 지원 요약</h2>
+        
+        <div class="message-box">
+          <div class="greeting">안녕하세요 🏥</div>
+          <p>30조 원 규모의 부동산 임대 시장 OS를 만들어가는 자리톡의 CX 매니저 직무에 지원합니다.</p>
+          <p>고객 문의의 반복 원인을 정량적으로 진단하고, 이를 시스템 연동 및 응대 표준화로 해결해 온 경험을 바탕으로 자리톡의 서비스 성장과 임대인의 만족도 제고에 기여하겠습니다.</p>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-value">-40%</div>
+            <div class="metric-label">고객/후원자 정보 파악 시간 단축<br>(CRM/CTI 360° 연동)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">-25%</div>
+            <div class="metric-label">반복 사이트 이용 문의 감소<br>(VOC 기반 UX/Admin 개편)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">약 30분</div>
+            <div class="metric-label">상담원 1인 일평균 업무시간 확보<br>(수기 이중 작성 제거)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">+15%</div>
+            <div class="metric-label">사용자 회원가입 성공률 개선<br>(가입 이탈 구간 재설계)</div>
+          </div>
+        </div>
+
+        <h3>🎯 공고 요구사항과 보유 역량 간의 팩트 기반 매칭</h3>
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>자리톡 주요 업무 &amp; 자격 요건</th>
+              <th>보유 경험 및 정량적 성과 데이터</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>자리톡 서비스 개선을 위한<br>운영 및 기획 업무</th>
+              <td>
+                • 가입 이탈 구간 및 문의 유형 정량 분석을 통한 사용자 페르소나/User Journey Map 기반 UX/UI 재설계<br>
+                • 웹사이트 및 통합 Admin 구축 기획을 통해 <strong>사이트 이용 문의 25% 감축</strong> 및 <strong>회원가입 성공률 15% 상승</strong> 달성
+              </td>
+            </tr>
+            <tr>
+              <th>전화, 온라인 채팅 등을 통한<br>고객 문의 접수 및 해결</th>
+              <td>
+                • CS매니저 및 CTI 시스템 관리자 3년 이상 경험 (인바운드, 웹채널 문의 응대)<br>
+                • 채널별 표준 응대 가이드라인 수립, 스크립트 표준화 및 1차 완결형 상담 체계 운용
+              </td>
+            </tr>
+            <tr>
+              <th>고객 응대 솔루션 고도화<br>(챗봇, AI) 및 자동화</th>
+              <td>
+                • 차세대 CRM/CTI 도입 Product Owner로서 360° 상담원 화면 설계 및 IVR 시나리오 최적화<br>
+                • 챗봇·자동화 AI 기능 요구사항 정리 및 사내 AI 서비스 기획 참여 경험 보유<br>
+                • 정보 변경 자동화 설계로 <strong>고객 정보 파악 시간 40% 단축</strong> 및 <strong>상담원 1인 일평균 30분 확보</strong>
+              </td>
+            </tr>
+            <tr>
+              <th>정량적 인사이트 바탕의<br>서비스 개선 &amp; 아이디어 기획</th>
+              <td>
+                • 정기적 VOC 데이터 분류 및 핵심 이슈 패턴 분석을 통해 현업 서비스 개선 과제로 연결<br>
+                • Tableau Bootcamp 수료 (입문편, Prep Builder) 및 상담 처리시간/만족도 지표 관리
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 1: 상세 이력서 -->
+    <div class="pf-tab-pane" id="tabPane1">
+      <div class="doc-section">
+        <h2>📄 인적사항 &amp; 핵심 역량 요약</h2>
+        <table class="info-table">
+          <tr>
+            <th>성명 / 지원 직무</th>
+            <td>원은빛 / (주)자리컴퍼니 자리톡 CX 매니저</td>
+          </tr>
+          <tr>
+            <th>연락처 / 이메일</th>
+            <td>010-8829-7492 / 7710hk@gmail.com</td>
+          </tr>
+          <tr>
+            <th>학력 사항</th>
+            <td>
+              • 한양사이버대학교 대학원 기계IT융합공학과 석사과정 재학 (2025.03 ~ 현재)<br>
+              • 국가평생교육진흥원 학점은행제 정보통신공학 공학사<br>
+              • 한양여자대학교 정보경영과 전문학사
+            </td>
+          </tr>
+          <tr>
+            <th>주요 보유 스킬</th>
+            <td>
+              • <strong>CX/CS 운영:</strong> VOC 분석 및 인덱싱, 채널별 응대 가이드라인 작성, 고객여정 분석, IVR 시나리오 설계<br>
+              • <strong>시스템 &amp; 툴:</strong> Salesforce (Service Cloud), Genesys Cloud, CTI/CRM 연동, Helpdesk 티켓팅 툴, Slack, Notion, Teams<br>
+              • <strong>데이터 &amp; AI:</strong> Tableau Bootcamp (입문/Prep Builder 수료), 지표 관리(처리시간/만족도), AI 챗봇 요구사항 정리
+            </td>
+          </tr>
+        </table>
+
+        <h2>💼 경력 사항</h2>
+        <div class="project-box">
+          <h4>사단법인 위드헤브론 | 정규직</h4>
+          <div class="project-period">2026.06 - 현재</div>
+          <ul>
+            <li>후원자 관리 체계(후원상태, 후원자 분류) 개선 및 백오피스 데이터 관리</li>
+            <li>디지털 후원 모금 캠페인 및 기부자 소통 여정 관리</li>
+          </ul>
+        </div>
+
+        <div class="project-box">
+          <h4>사회복지법인 월드비전 디지털혁신팀 | 프리랜서</h4>
+          <div class="project-period">2025.03 - 2025.12</div>
+          <ul>
+            <li>전사 디지털 역량 강화 교육 기획 및 운영 (사용자 수준별 커리큘럼 설계)</li>
+            <li>MS365 전환 리드 및 가이드라인/FAQ 정비, 사용자 피드백 대응</li>
+          </ul>
+        </div>
+
+        <div class="project-box">
+          <h4>사회복지법인 월드비전 | 대리 / IT기획·PM</h4>
+          <div class="project-period">2021.04 - 2024.08</div>
+          <ul>
+            <li>위기아동지원사업 웹사이트 및 통합 Admin 구축 기획 및 PM (회원가입 성공률 +15%, 사이트 문의 -25%)</li>
+            <li>재물관리 전산화 및 인사/재무 ERP 연동 기획 (업무 처리 시간 -30%)</li>
+          </ul>
+        </div>
+
+        <div class="project-box">
+          <h4>사회복지법인 월드비전 | 대리 / 후원상담 CS매니저, CTI 시스템 관리자</h4>
+          <div class="project-period">2018.01 - 2021.03</div>
+          <ul>
+            <li>차세대 CRM/CTI 도입 Product Owner (Salesforce &amp; Genesys Cloud 연동, 과거 이력 100% 무중단 이관)</li>
+            <li>인바운드 및 웹채널 상담 응대, 정기 VOC 분석 및 이슈 패턴 정량 진단</li>
+            <li>채널별 표준 응대 가이드라인 수립, CTI IVR 시나리오 최적화 및 사용자 교육</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: CX 포트폴리오 -->
+    <div class="pf-tab-pane" id="tabPane2">
+      <div class="doc-section">
+        <h2>📁 핵심 프로젝트 1: 반복 문의를 구조로 해결 (웹사이트 &amp; Admin 구축)</h2>
+        <p><strong>기간:</strong> 2022.02 - 2022.08 | <strong>역할:</strong> 기획 PM</p>
+        <div class="project-box">
+          <h4>[문제 상황]</h4>
+          <p>기존 페이지의 가입/로그인 및 비밀번호 찾기 절차가 복잡하여 진입 단계에서 이탈이 발생하고, 콘텐츠 수정 및 데이터 확인마다 IT 요청 문의가 과다하게 인입됨.</p>
+          <h4>[해결 방안 및 주요 역할]</h4>
+          <ul>
+            <li>가입 이탈 구간 및 주요 문의 유형 정량 분석 → 사용자 페르소나 및 User Journey Map 기반 UX/UI 재설계</li>
+            <li>Salesforce API 연동 로직 및 필드 단위 데이터 매핑 정의 (기획과 개발 간의 정확한 요구사항 전달)</li>
+            <li>Admin 기능별 권한 및 운영 시나리오 정의, 현업 대상 매뉴얼 제작 및 교육 수행</li>
+          </ul>
+          <h4>[정량적 성과]</h4>
+          <ul>
+            <li><strong>회원가입 성공률 +15% 상승</strong></li>
+            <li><strong>사이트 이용 문의 -25% 감축</strong></li>
+            <li><strong>현업 IT 단순 요청 건수 -15% 감축</strong></li>
+          </ul>
+        </div>
+
+        <h2>📁 핵심 프로젝트 2: CX 운영 체계 구축 및 단순 문의 자동화 (차세대 CRM/CTI 도입)</h2>
+        <p><strong>기간:</strong> 2019.09 - 2020.05 | <strong>역할:</strong> Product Owner</p>
+        <div class="project-box">
+          <h4>[문제 상황]</h4>
+          <p>CRM과 CTI 미연동으로 인해 상담 기록을 수기로 이중 작성하여 처리 지연이 발생하고, 홈페이지 변경 정보가 익일 수기 반영되어 동일 문의가 반복 인입됨.</p>
+          <h4>[해결 방안 및 주요 역할]</h4>
+          <ul>
+            <li>콜 인입부터 종료까지의 데이터 흐름 분석 및 상담원 업무 병목 정량 진단</li>
+            <li>Service Cloud 360° 상담원 통합 화면 및 Genesys Cloud IVR 분기 시나리오 설계</li>
+            <li>홈페이지-CRM 정보 변경 자동화 연동 설계로 단순 문의 인입 분산</li>
+            <li>과거 상담 이력 100% 무중단 데이터 이관 계획 수립 및 총괄 실행</li>
+          </ul>
+          <h4>[정량적 성과]</h4>
+          <ul>
+            <li><strong>고객 정보 파악 시간 -40% 단축</strong></li>
+            <li><strong>상담원 1인 일평균 업무시간 약 30분 확보</strong></li>
+            <li><strong>전환 중 상담 공백 0건 (무중단 이관 성공)</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: 위드헤브론 프로젝트 뷰어 -->
+    <div class="pf-tab-pane" id="tabPane3">
+      <div class="doc-section">
+        <h2>💻 [프로젝트 예시] 위드헤브론 모바일 캠페인 &amp; 백오피스 시스템</h2>
+        <p>지원자가 직접 기획/제작한 모바일 랜딩페이지 및 관리자 백오피스 인터랙티브 시뮬레이터입니다.</p>
+        
+        <div class="preview-layout">
+          
+          <!-- 제어 패널 -->
+          <aside class="preview-controller">
+            <h3>🎮 시뮬레이터 제어 패널</h3>
+            
+            <div class="ctrl-group">
+              <span class="ctrl-label">화면 전환 (모바일 3종 + 관리자 1종)</span>
+              <button class="page-switch-btn active" onclick="switchLivePage('page1')">
+                1. 1분 기도 &amp; 응원 릴레이 (참여 폼)
+              </button>
+              <button class="page-switch-btn" onclick="switchLivePage('page2')">
+                2. 감사 리포트 (후원 피드백 &amp; 갤러리)
+              </button>
+              <button class="page-switch-btn" onclick="switchLivePage('page3')">
+                3. 현장 소식 리포트 (연차보고서 &amp; NGO안내)
+              </button>
+              <button class="page-switch-btn" onclick="switchLivePage('page4')">
+                4. 관리자 콘솔 (인라인 인증 &amp; 내역 관리)
+              </button>
+            </div>
+
+            <div class="ctrl-group">
+              <span class="ctrl-label">릴레이 상태 조건 제어</span>
+              <div style="display:flex; align-items:center; justify-content:space-between; background:#F8FAFC; padding:8px 12px; border-radius:6px; border:1px solid var(--border); margin-bottom:10px; font-size:12px;">
+                <span>마감 상태 강제 적용</span>
+                <input type="checkbox" id="simDeadlineToggle" onchange="toggleSimDeadline(this.checked)">
+              </div>
+              <div style="display:flex; align-items:center; justify-content:space-between; background:#F8FAFC; padding:8px 12px; border-radius:6px; border:1px solid var(--border); font-size:12px;">
+                <span>양초 불켜기 수량</span>
+                <input type="range" id="candleRange" min="0" max="12" value="8" oninput="updateCandleSim(this.value)" style="width: 70px;">
+              </div>
+            </div>
+
+            <div style="background:#F1F5F9; padding:12px; border-radius:8px; font-size:11.5px; line-height:1.5; color:#475569;">
+              🔑 <strong>관리자 데모 로그인</strong><br>
+              - 비밀번호: <code>Qwer1234!@#$</code>
+            </div>
+          </aside>
+
+          <!-- 뷰어 프레임 -->
+          <div class="mobile-viewer-wrap">
+            <div class="mobile-frame" id="mainViewerFrame">
+              <div class="mobile-notch"><div class="mobile-notch-bar"></div></div>
+              <div class="mobile-viewport" id="mainViewPort">
+
+                <!-- [PAGE 1] 1분 기도 & 응원 릴레이 -->
+                <section class="live-app-page active-page" id="livePage1">
+                  <div class="hero-relay">
+                    <div class="eyebrow">캄보디아를 품는 1분 기도 &amp; 응원 릴레이</div>
+                    <h1>현장에는 생명과 미래가,<br>한국에는 기도하는 당신이 있습니다.</h1>
+                    <p>카카오톡으로 온 이 링크, 딱 1분만 시간 내주세요.<br>기도와 응원 한 줄이면 충분합니다.</p>
+                    <div class="relay-row" id="relayCandlesContainer"></div>
+                    <div class="counter" id="simCounterText">지금까지 8명이 함께했습니다</div>
+                  </div>
+
+                  <div class="relay-content">
+                    <div id="simClosedBox" style="display:none; background:#FDFBF7; border:1px solid #EFE6D5; border-radius:12px; padding:20px; text-align:center;">
+                      <h3>🕯️ 마음 모아서 응원해 주셔서 감사합니다.</h3>
+                      <p style="font-size:12px; color:#666;">온 마음 담아 남겨주신 응원은 캄보디아 헤브론의료원에 잘 전달하겠습니다.</p>
+                    </div>
+
+                    <form id="simPrayForm" onsubmit="handleSimSubmit(event)">
+                      <div class="field">
+                        <div class="check-row">
+                          <input type="checkbox" id="simPrayCheck" required>
+                          <label for="simPrayCheck" style="font-size:12px; cursor:pointer;">
+                            캄보디아 환우와 의료진을 위해 1분간 기도로 함께합니다
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                          <label for="simMessage" class="label" style="margin:0;">응원 메시지</label>
+                          <span id="simCharCount" style="font-size:11px; color:#888;">0 / 200자</span>
+                        </div>
+                        <textarea id="simMessage" class="textarea" maxlength="200" placeholder="따뜻한 응원의 한 줄을 남겨주세요." oninput="updateSimCharCount(this.value)" required></textarea>
+                      </div>
+
+                      <div class="field">
+                        <label for="simName" class="label">이름</label>
+                        <input type="text" id="simName" class="input" placeholder="이름을 입력하세요" required>
+                      </div>
+
+                      <div class="field">
+                        <label for="simContact" class="label">연락처</label>
+                        <input type="tel" id="simContact" class="input" placeholder="010-0000-0000" required>
+                      </div>
+
+                      <div class="field">
+                        <div class="check-row">
+                          <input type="checkbox" id="simConsentCheck" required>
+                          <label for="simConsentCheck" style="font-size:11.5px; cursor:pointer;">
+                            [필수] 개인정보 수집·이용에 동의합니다
+                          </label>
+                        </div>
+                      </div>
+
+                      <button type="submit" class="submit-btn">기도 릴레이 참여하기 🕯️</button>
+                    </form>
+                  </div>
+
+                  <div class="footer">
+                    <p><strong>사단법인 위드헤브론</strong></p>
+                    <p>© 2026 With Hebron. All rights reserved.</p>
+                  </div>
+                </section>
+
+                <!-- [PAGE 2] 감사 리포트 -->
+                <section class="live-app-page" id="livePage2">
+                  <div class="header">
+                    <span class="badge">위드헤브론 감사 리포트</span>
+                    <h1>한국에서 전한 마음,<br>캄보디아에서 피어난 감사 💌</h1>
+                  </div>
+
+                  <div class="message-box">
+                    <div class="greeting">안녕하세요 🏥</div>
+                    <p>남겨주신 따뜻한 기도와 응원이 캄보디아 현장의 환우와 의료진에게 전달되어 큰 위로와 소망이 되었습니다. 💖</p>
+                    <p>후원자님의 따뜻한 나눔으로 건강을 되찾은 아이들과, 그 사랑을 현장에서 이어가고 있는 의료진이 감사의 인사를 전해왔습니다.</p>
+                  </div>
+
+                  <div class="section-title"><h2>🎬 캄보디아에서 전하는 이야기</h2></div>
+                  <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/-JAbdhJUvGA" title="YouTube video player" allowfullscreen></iframe>
+                  </div>
+
+                  <div class="section-title"><h2>마음을 담아 전하는 감사 인사 🙇‍♀️</h2></div>
+                  
+                  <div class="story-card">
+                    <div class="story-title">💌 다시 찾은 건강, 잊지 못할 사랑</div>
+                    <p>2023년과 2024년, 헤브론 메디컬 센터와 한국에서 수술받을 수 있도록 도와주신 후원자님들과 선생님, 의료진 여러분께 진심으로 감사드립니다.</p>
+                    <p><strong>- 홍리치(Hongreach)</strong></p>
+                    <span class="story-tag">#환아의감사</span>
+                  </div>
+
+                  <div class="story-card">
+                    <div class="story-title">💙 건강과 배움의 기회를 선물받은 아이</div>
+                    <p>심장병을 치료하고 건강을 회복할 수 있도록 도와주신 모든 의료진께 진심으로 감사드립니다.</p>
+                    <p><strong>- 아옥 라타(Aok Ratha)</strong></p>
+                    <span class="story-tag">#건강한내일</span>
+                  </div>
+
+                  <div class="banner">
+                    <h3>"후원자님의 기도, 사랑의 시작입니다"</h3>
+                    <p>더 많은 캄보디아 환우들에게 희망을 전해 주세요.</p>
+                    <a href="https://mrmweb.hsit.co.kr/v2/Member/MemberJoin.aspx?action=join&amp;server=2WMQCcxHyID2uxRJtOoN5A==&amp;supportgroup=2" target="_blank" class="btn-primary">위드헤브론의 동역자 되기 🙏</a>
+                  </div>
+
+                  <div class="footer">
+                    <p><strong>사단법인 위드헤브론</strong></p>
+                    <p>© 2026 With Hebron. All rights reserved.</p>
+                  </div>
+                </section>
+
+                <!-- [PAGE 3] 현장 소식 리포트 -->
+                <section class="live-app-page" id="livePage3">
+                  <div class="header">
+                    <span class="badge">위드헤브론 현장 리포트</span>
+                    <h1>후원자님의 사랑으로 피어난<br>캄보디아의 희망 소식! 💌</h1>
+                  </div>
+
+                  <div class="message-box">
+                    <div class="greeting">안녕하세요 후원자님 🏥</div>
+                    <p>후원자님께서 보내주시는 따뜻한 관심 덕분에, 캄보디아 헤브론병원의 환우들과 의료진이 큰 위로와 소망을 얻고 있습니다.</p>
+                  </div>
+
+                  <div class="story-card">
+                    <div class="story-title">🏥 사단법인 위드헤브론은?</div>
+                    <p>위드헤브론은 소외계층 환자 치료, 장학, 지역보건 사업을 수행하는 국제개발협력 NGO입니다.</p>
+                    <span class="story-tag">#의료선교</span>
+                    <span class="story-tag">#보건의료지원</span>
+                  </div>
+
+                  <div class="banner">
+                    <h3>"생명을 살리는 헤브론의 이야기"</h3>
+                    <p>위드헤브론의 지난 활동과 사역 소식을 확인해 보세요.</p>
+                    <div class="btn-group">
+                      <a href="https://5031855c-af25-4e93-8d03-355dd34a10d7.filesusr.com/ugd/601e99_3b1e7eea4c484a26b595ebac82a251f8.pdf" target="_blank" class="btn-outline">📄 2025년도 연차보고서 보기</a>
+                      <a href="https://www.withhebron.org" target="_blank" class="btn-outline">🌐 위드헤브론 공식 홈페이지</a>
+                    </div>
+                  </div>
+
+                  <div class="footer">
+                    <p><strong>사단법인 위드헤브론</strong></p>
+                    <p>© 2026 With Hebron. All rights reserved.</p>
+                  </div>
+                </section>
+
+                <!-- [PAGE 4] 관리자 콘솔 -->
+                <section class="live-app-page" id="livePage4">
+                  <div class="admin-demo-wrap">
+                    <div class="admin-login-card" id="demoAdminLogin">
+                      <h2>관리자 로그인</h2>
+                      <p style="font-size:12px; color:#666; margin-bottom:14px;">기도 릴레이 접수 현황 조회</p>
+                      <input type="password" id="demoAdminPw" class="input" placeholder="비밀번호 입력 (Qwer1234!@#$)" style="margin-bottom:10px;">
+                      <button class="submit-btn" style="margin-top:0;" onclick="handleDemoAdminLogin()">접속하기</button>
+                      <div id="demoAdminErr" style="color:var(--danger); font-size:12px; margin-top:8px; display:none;">비밀번호가 올바르지 않습니다.</div>
+                    </div>
+
+                    <div class="admin-dashboard-panel" id="demoAdminDashboard">
+                      <div class="admin-header-row">
+                        <div>
+                          <h2 style="font-size:16px; margin:0; color:var(--teal-deep);">캄보디아 기도 릴레이 신청 현황</h2>
+                          <div style="font-size:12px; color:#64748B; margin-top:2px;">총 <strong id="adminTotalCount">4</strong>건의 접수 내역</div>
+                        </div>
+                        <div class="admin-actions">
+                          <button class="btn-admin btn-admin-excel" onclick="exportDemoCSV()">📊 엑셀 다운로드</button>
+                          <button class="btn-admin btn-admin-delete" onclick="deleteDemoAll()">🚨 전체 일괄 파기</button>
+                        </div>
+                      </div>
+
+                      <div style="overflow-x:auto;">
+                        <table class="admin-data-table">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>이름</th>
+                              <th>연락처</th>
+                              <th>응원 메시지</th>
+                              <th>동의여부</th>
+                              <th>신청일시</th>
+                              <th>관리</th>
+                            </tr>
+                          </thead>
+                          <tbody id="demoAdminTableBody"></tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="pf-main-footer">
+    <p>포트폴리오 제작: 원은빛 (Won Eun-bit) | (주)자리컴퍼니 자리톡 CX 매니저 지원</p>
+    <p style="font-size:11px; margin-top:4px;">Contact: 010-8829-7492 | 7710hk@gmail.com</p>
+  </footer>
+
+  <!-- 보안 스크립트 -->
+  <script>
+    document.addEventListener('contextmenu', e => { e.preventDefault(); return false; });
+    document.addEventListener('dragstart', e => { e.preventDefault(); return false; });
+    document.addEventListener('selectstart', e => {
+      if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return true;
+      e.preventDefault();
+      return false;
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'F12') { e.preventDefault(); return false; }
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') { e.preventDefault(); return false; }
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i', 'j', 'c'].includes(e.key.toLowerCase())) { e.preventDefault(); return false; }
+    });
+  </script>
+
+  <!-- 탭 전환 및 뷰어 제어 스크립트 -->
+  <script>
+    /* 메인 탭 전환 함수 검증 및 수정 */
+    function switchPfTab(tabIndex) {
+      const btns = document.querySelectorAll('.pf-tab-btn');
+      const panes = document.querySelectorAll('.pf-content-container .pf-tab-pane');
+      
+      btns.forEach((b, i) => b.classList.toggle('active', i === tabIndex));
+      panes.forEach((p, i) => p.classList.toggle('active', i === tabIndex));
+    }
+
+    function switchLivePage(pageKey) {
+      const pageBtns = document.querySelectorAll('.page-switch-btn');
+      const pages = {
+        'page1': document.getElementById('livePage1'),
+        'page2': document.getElementById('livePage2'),
+        'page3': document.getElementById('livePage3'),
+        'page4': document.getElementById('livePage4')
+      };
+      const frame = document.getElementById('mainViewerFrame');
+
+      pageBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('onclick').includes(pageKey));
+      });
+
+      Object.keys(pages).forEach(k => {
+        if(pages[k]) pages[k].classList.toggle('active-page', k === pageKey);
+      });
+
+      if (pageKey === 'page4') {
+        frame.classList.add('desktop-mode');
+      } else {
+        frame.classList.remove('desktop-mode');
+      }
+    }
+
+    // 촛불 렌더링
+    const candleContainer = document.getElementById('relayCandlesContainer');
+    if(candleContainer) {
+      for (let i = 0; i < 12; i++) {
+        const c = document.createElement('div');
+        c.className = 'candle';
+        c.innerHTML = '<div class="flame"></div><div class="stick"></div>';
+        candleContainer.appendChild(c);
+      }
+    }
+
+    function updateCandleSim(val) {
+      const count = parseInt(val, 10);
+      document.getElementById('simCounterText').textContent = `지금까지 ${count}명이 함께했습니다`;
+      const candles = candleContainer.querySelectorAll('.candle');
+      candles.forEach((c, idx) => c.classList.toggle('lit', idx < count));
+    }
+    updateCandleSim(8);
+
+    function toggleSimDeadline(isClosed) {
+      document.getElementById('simPrayForm').style.display = isClosed ? 'none' : 'block';
+      document.getElementById('simClosedBox').style.display = isClosed ? 'block' : 'none';
+    }
+
+    function updateSimCharCount(val) {
+      document.getElementById('simCharCount').textContent = `${val.length} / 200자`;
+    }
+
+    function handleSimSubmit(e) {
+      e.preventDefault();
+      alert('함께 마음을 모아주셔서 감사합니다! 촛불이 전달되었습니다.');
+      document.getElementById('simPrayForm').reset();
+      updateSimCharCount('');
+    }
+
+    // 데모 관리자 로직
+    const ADMIN_PW = "Qwer1234!@#$";
+    let mockAdminData = [
+      { id: '1', name: '김동역', contact: '010-1234-5678', message: '헤브론 의료진 분들 항상 응원합니다!', consent: true, createdAt: '2026.09.21' },
+      { id: '2', name: '이지은', contact: '010-9876-5432', message: '작은 정성이지만 환아들에게 힘이 되길 바랍니다.', consent: true, createdAt: '2026.09.21' }
+    ];
+
+    function handleDemoAdminLogin() {
+      const pw = document.getElementById('demoAdminPw').value;
+      if (pw === ADMIN_PW) {
+        document.getElementById('demoAdminLogin').style.display = 'none';
+        document.getElementById('demoAdminDashboard').style.display = 'block';
+        renderAdminTable();
+      } else {
+        document.getElementById('demoAdminErr').style.display = 'block';
+      }
+    }
+
+    function renderAdminTable() {
+      const tbody = document.getElementById('demoAdminTableBody');
+      document.getElementById('adminTotalCount').textContent = mockAdminData.length;
+      tbody.innerHTML = mockAdminData.map((item, idx) => `
+        <tr>
+          <td>${idx + 1}</td>
+          <td><strong>${item.name}</strong></td>
+          <td>${item.contact}</td>
+          <td>${item.message}</td>
+          <td><span class="badge-stat agree">동의</span></td>
+          <td>${item.createdAt}</td>
+          <td><button class="btn-del-sm" onclick="deleteDemoDoc('${item.id}')">삭제</button></td>
+        </tr>
+      `).join('');
+    }
+
+    function deleteDemoDoc(id) {
+      mockAdminData = mockAdminData.filter(d => d.id !== id);
+      renderAdminTable();
+    }
+
+    function deleteDemoAll() {
+      mockAdminData = [];
+      renderAdminTable();
+    }
+
+    function exportDemoCSV() {
+      alert('CSV 내보내기가 완료되었습니다.');
+    }
+  </script>
+
+</body>
+</html>
