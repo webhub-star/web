@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>원은빛 | CX &amp; CS Operations Manager Portfolio</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSPYWH9QYF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XSPYWH9QYF');
+  </script>
+
+  <!-- 구글 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* 업로드된 이미지 컬러 팔레트 반영 */
+      --yale-blue: #0f3b59;
+      --cool-steel: #7d929e;
+      --dust-grey: #dbd4cc;
+      --goldenrod: #dba12c;
+      --dark-coffee: #3e251e;
+      
+      --border: #E2E8F0;
+      --text-main: #333333;
+      --text-sub: #666666;
+      --danger: #B4483C;
+      --success: #2E7D32;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    input, textarea {
+      -webkit-user-select: auto !important;
+      -moz-user-select: auto !important;
+      -ms-user-select: auto !important;
+      user-select: auto !important;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #F1F5F9;
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* 포트폴리오 헤더 */
+    .pf-header {
+      background: var(--yale-blue);
+      color: #FFFFFF;
+      padding: 28px 32px;
+      border-bottom: 4px solid var(--goldenrod);
+    }
+    .pf-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .pf-title-area h1 {
+      margin: 0 0 6px 0;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .pf-title-area p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--dust-grey);
+    }
+    .pf-badge-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pf-badge {
+      background: rgba(219, 165, 44, 0.2);
+      border: 1px solid var(--goldenrod);
+      color: #FFE082;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* 탭 네비게이션 */
+    .pf-tab-nav {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+    .pf-tab-btn {
+      background: none;
+      border: none;
+      padding: 16px 20px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-sub);
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .pf-tab-btn:hover { color: var(--yale-blue); }
+    .pf-tab-btn.active { color: var(--yale-blue); }
+    .pf-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--goldenrod);
+    }
+
+    .pf-content-container {
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px;
+      flex: 1;
+    }
+    .pf-tab-pane { display: none; }
+    .pf-tab-pane.active { display: block; }
+
+    /* 문서 공통 디자인 */
+    .doc-section {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(15, 59, 89, 0.04);
+      margin-bottom: 24px;
+    }
+    .doc-section h2 {
+      margin: 0 0 16px 0;
+      font-size: 20px;
+      color: var(--yale-blue);
+      border-bottom: 2px solid var(--dust-grey);
+      padding-bottom: 10px;
+      font-family: 'Noto Serif KR', serif;
+    }
+    .doc-section h3 {
+      font-size: 16px;
+      color: var(--cool-steel);
+      margin: 24px 0 10px 0;
+    }
+    .doc-section p {
+      line-height: 1.7;
+      color: #475569;
+      margin: 0 0 16px 0;
+      font-size: 14.5px;
+    }
+
+    /* 지표 카드 그리드 */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .metric-card {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--goldenrod);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .metric-value {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--yale-blue);
+      margin-bottom: 6px;
+    }
+    .metric-label {
+      font-size: 13px;
+      color: var(--text-sub);
+      font-weight: 500;
+    }
+
+    /* 테이블 & 프로젝트 박스 */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    .info-table th, .info-table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      font-size: 14px;
+    }
+    .info-table th {
+      background: #F8FAFC;
+      color: var(--yale-blue);
+      width: 200px;
+      font-weight: 700;
+    }
+
+    .project-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--cool-steel);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .project-box h4 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      color: var(--yale-blue);
+    }
+    .project-period {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-bottom: 12px;
+    }
+    .project-box ul {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: #334155;
+    }
+
+    /* 링크 버튼 스타일 */
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background-color: var(--yale-blue);
+      color: #ffffff;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-left: 6px;
+      vertical-align: middle;
+      transition: background-color 0.2s;
+    }
+    .link-btn:hover {
+      background-color: var(--goldenrod);
+      color: var(--yale-blue);
+    }
+
+    .message-box {
+      margin: 20px 0;
+      padding: 24px;
+      background-color: #FAF8F5;
+      border: 1px solid var(--dust-grey);
+      border-left: 4px solid var(--goldenrod);
+      border-radius: 8px;
+    }
+    .message-box .greeting { font-size: 16px; font-weight: 700; color: var(--yale-blue); margin-bottom: 8px; }
+    .message-box p { font-size: 14px; line-height: 1.6; color: var(--text-main); margin: 0 0 8px 0; word-break: keep-all; }
+    .message-box p:last-child { margin-bottom: 0; }
+
+    .pf-main-footer {
+      background: var(--dark-coffee);
+      color: var(--dust-grey);
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+
+  <!-- 헤더 -->
+  <header class="pf-header">
+    <div class="pf-header-top">
+      <div class="pf-title-area">
+        <h1>원은빛 | AI CX Product Owner &amp; CS Operations Manager 포트폴리오</h1>
+        <p>VOC 및 고객 여정 분석, AI 상담·자동화 기획, CRM/CTI 인프라 구축으로 고객 경험(CX)을 서비스 혁신으로 연결하는 지원자입니다.</p>
+      </div>
+      <div class="pf-badge-group">
+        <span class="pf-badge">AI CX Product Owner</span>
+        <span class="pf-badge">CX/CS 운영 3년+</span>
+        <span class="pf-badge">CRM/CTI 연동·구축</span>
+        <span class="pf-badge">AI 상담 및 가드레일 설계</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 메인 탭 네비게이션 -->
+  <nav class="pf-tab-nav">
+    <button class="pf-tab-btn active" onclick="switchPfTab(0)">📋 핵심 역량 &amp; 성과 요약</button>
+    <button class="pf-tab-btn" onclick="switchPfTab(1)">📄 상세 이력서</button>
+    <button class="pf-tab-btn" onclick="switchPfTab(2)">📁 주요 프로젝트</button>
+  </nav>
+
+  <!-- 메인 컨테이너 -->
+  <main class="pf-content-container">
+
+    <!-- TAB 0: 핵심 역량 & 성과 요약 -->
+    <div class="pf-tab-pane active" id="tabPane0">
+      <div class="doc-section">
+        <h2>💡 AI CX Product Owner &amp; Operations 전문성 요약</h2>
+        
+        <div class="message-box">
+          <div class="greeting">안녕하세요 🏢</div>
+          <p>고객이 반복해서 겪는 문제를 VOC와 고객 여정 분석을 통해 진단하고, AI 상담 시스템과 휴먼 개입(가드레일·이관) 영역을 구조적으로 설계하여 새로운 서비스 기회로 만드는 AI CX Product Owner 원은빛입니다.</p>
+          <p>문의 응대를 넘어 데이터 기반의 핵심 지표(재문의율, 완수율, 이관율, 만족도 등)를 설계하고, 개발 파트너와의 협업을 통해 검수부터 출시·개선까지 주도해 온 실무 역량을 보유하고 있습니다.</p>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-value">-40%</div>
+            <div class="metric-label">고객 정보 파악 소요 시간 단축<br>(CRM/CTI 360° 연동 통합 화면 설계)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">-25%</div>
+            <div class="metric-label">반복 서비스 이용 문의 감축<br>(VOC 기반 UX 및 Admin 개편)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">약 30분</div>
+            <div class="metric-label">상담원 1인당 일평균 업무시간 확보<br>(수기 이중 작성 프로세스 제거)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">+15%</div>
+            <div class="metric-label">사용자 회원가입 성공률 개선<br>(가입 진입 및 이탈 구간 재설계)</div>
+          </div>
+        </div>
+
+        <h3>🎯 AI CX PO 직무 역량</h3>
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>AI CX PO 핵심 영역</th>
+              <th>보유 경험 및 정량적 성과 데이터</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>VOC &amp; 고객 여정 분석을 통한<br>문제 정의 및 우선순위 설정</th>
+              <td>
+                • 인입 문의 유형 및 사용자 이탈 구간 정량 분석을 통한 User Journey Map 기반 서비스 개편 기획<br>
+                • 웹 플랫폼 및 통합 Admin 구축 총괄을 통해 <strong>서비스 이용 관련 반복 문의 25% 감축</strong> 및 <strong>회원가입 성공률 15% 상승</strong> 달성
+              </td>
+            </tr>
+            <tr>
+              <th>AI 영역과 휴먼 개입 영역 설계<br>(질문·이관·가드레일 구축)</th>
+              <td>
+                • 차세대 CRM/CTI 도입 Product Owner로서 Genesys Cloud IVR 분기 시나리오 및 상담원 이관 경로 최적화 수행<br>
+                • 인바운드 콜 플로우 및 자동화 시스템 내 예외 상황 대응 가드레일 설계 경험
+              </td>
+            </tr>
+            <tr>
+              <th>AI 상담, 셀프서비스 등<br>새로운 CX 기능 기획</th>
+              <td>
+                • 챗봇 및 응대 자동화 AI 기능의 요구사항 정립 및 <strong>사내 AI 서비스 기획 참여</strong><br>
+                • 캠페인 랜딩페이지·관리자 페이지 직접 구축 및 AI 도구를 활용한 디지털 업무 효율화 적용
+              </td>
+            </tr>
+            <tr>
+              <th>개발 파트너 협업 주도 및<br>핵심 지표(KPI) 관리</th>
+              <td>
+                • IT 기획 PM 및 PO로서 요구사항 정의부터 개발 파트너 조율, 검수, 출시 및 사후 개선까지 전 과정 주도<br>
+                • 처리 시간(AHT), 고객 만족도(CSAT), 처리율 등의 핵심 운영 지표 관리 체계 정립
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 1: 상세 이력서 -->
+    <div class="pf-tab-pane" id="tabPane1">
+      <div class="doc-section">
+        <h2>📄 인적사항 &amp; 기술 스택</h2>
+        <table class="info-table">
+          <tr>
+            <th>성명 / 희망 직무</th>
+            <td>원은빛 / AI CX Product Owner, CX &amp; CS Operations Manager</td>
+          </tr>
+          <tr>
+            <th>연락처 / 이메일</th>
+            <td>010-8829-7492 / 7710hk@gmail.com</td>
+          </tr>
+          <tr>
+            <th>학력 사항</th>
+            <td>
+              • 한양사이버대학교 대학원 기계IT융합공학과 석사과정 재학 (2025.03. ~ 현재)<br>
+              • 국가평생교육진흥원 학점은행제 정보통신공학 공학사<br>
+              • 한양여자대학교 정보경영과 전문학사
+            </td>
+          </tr>
+          <tr>
+            <th>핵심 보유 스킬</th>
+            <td>
+            <ul>
+              <li><strong>AI CX &amp; Product Management</strong></li>
+              <ul>
+                <li>VOC 및 고객여정 분석, AI 상담/챗봇 요구사항 정의, 가드레일 및 이관 시나리오 설계<br></li>
+              </ul>
+              <li><strong>CX/CS Operations</strong></li>
+              <ul>
+                <li>채널별 응대 가이드라인 수립, IVR 최적화, 상담 지표(AHT, CSAT) 관리<br></li>
+              </ul>
+              <li><strong>System &amp; Workspace</strong></li>
+              <ul>
+                <li>Salesforce (Service Cloud), Genesys Cloud, CTI/CRM 연동, MS Teams, Microsoft 365<br></li>
+              </ul>
+              <li><strong>Data &amp; Tools</strong></li>             
+                <ul>
+                <li>Tableau Bootcamp (입문/Prep Builder 수료), Slack, Notion, Jira</li>
+               </ul>
+              </ul>
+            </td>
+          </tr>
+        </table>
+
+        <h2>💼 경력 사항</h2>
+        <div class="project-box">
+          <h4>사단법인 위드헤브론 | 정규직</h4>
+          <div class="project-period">2026.06. - 현재</div>
+          <ul>
+            <li>고객/후원자 관리 체계(상태 정의, 분류 체계) 개선 및 백오피스 데이터 정합성 관리</li>
+            <li>디지털 캠페인 기획, 랜딩페이지·관리자페이지 구축 및 사용자 소통 여정 관리
+            </li>
+          </ul>
+        </div>
+
+        <div class="project-box">
+          <h4>사회복지법인 월드비전 디지털혁신팀 | 프리랜서</h4>
+          <div class="project-period">2025.03. - 2025.12.</div>
+          <ul>
+            <li>전사 디지털 역량 강화 교육 기획 및 운영 (사용자 숙련도별 커리큘럼 설계)</li>
+            <li>MS365 전환 리드 및 가이드라인/FAQ 정비, 사용자 피드백 대응</li>
+          </ul>
+        </div>
+
+        <div class="project-box">
+          <h4>사회복지법인 월드비전 | 대리 / IT기획·PM</h4>
+          <div class="project-period">2021.04. - 2024.09.</div>
+          <ul>
+            <li><strong>MS365 전환 및 디지털 워크플레이스 구축 (2023.01. - 2023.08.)</strong>:
+              <ul>
+                <li>내/외부 소통 채널 파편화 해결을 위한 단계별 마이그레이션 전략 100% 리드</li>
+                <li>MS Teams 기반 전사 전환 및 외부 협력사 파일·일정 공유 프로세스 표준화</li>
+                <li>전국 사업장 통합 번호 체계 수립 및 TeamsPhone 기반 전사 표준 IVR 규칙 정의</li>
+              </ul>
+            </li>
+            <li>웹사이트 및 통합 Admin 구축 기획</li>
+            <li>사내 자산 관리 전산화 및 ERP 연동</li>
+            <li>전사 디지털 전략 수립(AI, DT)</li>
+            <li>내부시스템(그룹웨어, 문서중앙화, MS, MS Teams Phone, 통합PC관리) 관리 및 운영</li>
+          </ul>
+        </div>
+
+        <div class="project-box">
+          <h4>사회복지법인 월드비전 | 대리 / 고객센터 CS매니저 및 CTI 시스템 관리자</h4>
+          <div class="project-period">2018.01. - 2021.03.</div>
+          <ul>
+            <li>차세대 CRM/CTI 도입 Product Owner (Salesforce &amp; Genesys Cloud 연동, 과거 이력 100% 무중단 이관)</li>
+            <li>인바운드 및 웹 채널 고객 문의 응대, 정기 VOC 데이터 분석 및 이슈 패턴 정량 진단</li>
+            <li>채널별 표준 응대 가이드라인 수립, CTI IVR 시나리오 최적화 및 상담원 대상 시스템 교육</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: 주요 CX 프로젝트 포트폴리오 -->
+    <div class="pf-tab-pane" id="tabPane2">
+      <div class="doc-section">
+        <h2>📁 프로젝트 1: AI 서비스 기획 및 응대 자동화 구축 (AI CX PO 직무 역량)</h2>
+        <p><strong>기간:</strong> 2025.03. - 현재 | <strong>역할:</strong> AI CX Product Owner</p>
+        <div class="project-box">
+          <h4>[배경 및 문제 상황]</h4>
+          <p>반복적인 고객 문의 인입과 캠페인 응대 과정에서 발생하는 리소스 소모를 진단하고, AI가 해결할 영역과 사람이 개입할 영역을 구분하여 빠른 응대 전환 체계를 구축할 필요성이 생김.</p>
+          <h4>[해결 방안 및 주요 역할]</h4>
+          <ul>
+            <li>챗봇 및 응대 자동화 AI 기능의 요구사항 정의서 작성 및 사내 AI 서비스 구현 기획
+              <a href="https://www.livesnews.com/news/article.html?no=55768" target="_blank" class="link-btn">관련 기사 🔗</a>
+            </li>
+            <li>캠페인 맞춤형 랜딩페이지 및 백오피스 관리자 페이지 직접 구축을 통한 응대 프로세스 체계화
+              <a href="https://webhub-star.github.io/portfolio/" target="_blank" class="link-btn">프로젝트 링크 🔗</a>
+            </li>
+            <li>AI 상담 영역과 상담원 이관(Handoff) 및 예외 처리 가드레일 설계</li>
+          </ul>
+          <h4>[정량적 성과 데이터]</h4>
+          <ul>
+            <li><strong>고객 접점 채널의 자동화 비율 향상</strong> 및 반복 업무 대폭 감축</li>
+            <li><strong>실시간 데이터 수집 및 관리자 콘솔 연동</strong>을 통한 운영 업무 효율화</li>
+          </ul>
+        </div>
+
+        <h2>📁 프로젝트 2: MS365 전환 및 디지털 워크플레이스 구축 (인프라 통합)</h2>
+        <p><strong>기간:</strong> 2023.01. - 2023.08. | <strong>역할:</strong> 프로젝트 리드 (100% 리드)</p>
+        <div class="project-box">
+          <h4>[배경 및 문제 상황]</h4>
+          <p>기존 협업 도구의 불안정성과 분산된 전화 체계로 인한 업무 지연이 발생하였으며, 전국 사업장의 상이한 내선 관리 비효율 및 대외 소통 한계가 심화됨.</p>
+          <h4>[해결 방안 및 주요 역할]</h4>
+          <ul>
+            <li>전사 내/외부 소통 채널 일원화 로드맵 및 단계별 마이그레이션 전략 수립 (100% 리드)</li>
+            <li>사용자 유형별 도입 저항 요인 식별 및 사용자 여정별 불편 요소 분석을 통한 전환 리스크 최소화</li>
+            <li>MS Teams 기반 전사 전환 총괄 및 외부 파트너용 게스트 초청 기반 협업 프로세스 표준화</li>
+            <li>통합 번호 체계 수립 및 TeamsPhone 기반 전사 표준 IVR 규칙 정의로 불필요한 인바운드 예방</li>
+          </ul>
+          <h4>[정량적 성과 데이터]</h4>
+          <ul>
+            <li><strong>Teams 기반 채널 일원화</strong>를 통한 전사 조직 간 정보 투명성 확보</li>
+            <li><strong>외부 협력사와의 안전하고 신속한 협업 환경 조성</strong> (게스트 계정 정책 정립)</li>
+            <li><strong>중앙 집중형 내선·IVR 관리 체계 확립</strong>으로 전사 인프라 운영 비용 절감</li>
+          </ul>
+        </div>
+
+        <h2>📁 프로젝트 3: VOC 정량 분석을 통한 웹사이트 &amp; Admin 구축 (이용 문의 25% 감축)</h2>
+        <p><strong>기간:</strong> 2022.02. - 2022.08. | <strong>역할:</strong> 기획 PM</p>
+        <div class="project-box">
+          <h4>[배경 및 문제 상황]</h4>
+          <p>기존 플랫폼 내 회원가입, 로그인, 정보 조회 절차가 복잡하여 진입 단계에서 고객 이탈이 발생하고, 콘텐츠 수정 및 데이터 확인마다 IT 부서에 단순 문의가 과다하게 인입됨.</p>
+          <h4>[해결 방안 및 주요 역할]</h4>
+          <ul>
+            <li>가입 이탈 구간 및 주요 문의 유형 정량 분석 → 사용자 페르소나 및 User Journey Map 기반 UX/UI 전면 재설계</li>
+            <li>Salesforce API 연동 로직 및 필드 단위 데이터 매핑 정의</li>
+            <li>Admin 기능별 권한 및 운영 시나리오 정의, 현업 실무자 대상 매뉴얼 제작 및 교육 수행</li>
+          </ul>
+          <h4>[정량적 성과 데이터]</h4>
+          <ul>
+            <li><strong>회원가입 성공률 +15% 상승</strong> 달성</li>
+            <li><strong>사이트 이용 관련 반복 문의 -25% 감축</strong></li>
+            <li><strong>현업 IT 단순 요청 건수 -15% 감축</strong>으로 운영 효율성 극대화</li>
+          </ul>
+        </div>
+
+        <h2>📁 프로젝트 4: 차세대 CRM/CTI 도입을 통한 360° 상담 체계 구축 (정보 파악 40% 단축)</h2>
+        <p><strong>기간:</strong> 2019.09. - 2020.05. | <strong>역할:</strong> Product Owner</p>
+        <div class="project-box">
+          <h4>[배경 및 문제 상황]</h4>
+          <p>CRM과 CTI 시스템이 미연동되어 상담원이 고객 응대 시 기록을 수기로 이중 작성하여 처리 지연이 발생함.</p>
+          <h4>[해결 방안 및 주요 역할]</h4>
+          <ul>
+            <li>Salesforce Service Cloud 360° 상담원 통합 화면 및 Genesys Cloud IVR 분기 시나리오 설계</li>
+            <li>웹사이트-CRM 간 정보 변경 자동화 연동 설계로 단순 반복 문의 인입 분산</li>
+            <li>과거 누적 상담 이력 100% 무중단 데이터 이관 계획 수립 및 총괄 실행</li>
+          </ul>
+          <h4>[정량적 성과 데이터]</h4>
+          <ul>
+            <li><strong>고객 정보 파악 시간 -40% 단축</strong></li>
+            <li><strong>상담원 1인당 일평균 업무시간 약 30분 확보</strong></li>
+            <li>시스템 전환 중 <strong>상담 공백 0건 (무중단 이관 100% 성공)</strong> 달성</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="pf-main-footer">
+    <p>포트폴리오 제작: 원은빛 (Won Eun-bit) | AI CX Product Owner Portfolio</p>
+    <p style="font-size:11px; margin-top:4px;">Contact: 010-8829-7492 | 7710hk@gmail.com</p>
+  </footer>
+
+  <!-- 보안 및 탭 전환 스크립트 -->
+  <script>
+    document.addEventListener('contextmenu', e => { e.preventDefault(); return false; });
+    document.addEventListener('dragstart', e => { e.preventDefault(); return false; });
+    document.addEventListener('selectstart', e => {
+      if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return true;
+      e.preventDefault();
+      return false;
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'F12') { e.preventDefault(); return false; }
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') { e.preventDefault(); return false; }
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i', 'j', 'c'].includes(e.key.toLowerCase())) { e.preventDefault(); return false; }
+    });
+
+    function switchPfTab(tabIndex) {
+      const btns = document.querySelectorAll('.pf-tab-btn');
+      const panes = document.querySelectorAll('.pf-content-container .pf-tab-pane');
+      
+      btns.forEach((b, i) => b.classList.toggle('active', i === tabIndex));
+      panes.forEach((p, i) => p.classList.toggle('active', i === tabIndex));
+    }
+  </script>
+
+</body>
+</html>
