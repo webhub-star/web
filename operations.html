@@ -359,80 +359,172 @@
       
       @media print {
         @page {
-          size: A4;
-          margin: 14mm
+          size: A4 portrait;
+          margin: 10mm;
         }
-      
-        body {
-          background: white;
-          font-size: 10pt
-        }
-      
-        nav {
-          display: none
-        }
-      
-        .page {
-          max-width: none;
+
+        html, body {
           margin: 0;
-          padding: 12mm 6mm;
-          border: none;
+          padding: 0;
+          background: white;
+        }
+
+        nav, button {
+          display: none !important;
+        }
+
+        .page {
+          width: 100%;
+          max-width: none;
+          min-height: 0;
+          margin: 0;
+          padding: 7mm 5mm;
+          border: 0;
+          box-shadow: none;
+          break-inside: avoid-page;
+          page-break-inside: avoid;
           break-after: page;
-          box-shadow: none
+          page-break-after: always;
         }
-      
-        .page: last-of-type {
-          break-after: auto
+
+        .page:last-of-type {
+          break-after: auto;
+          page-break-after: auto;
         }
-      
+
         .hero {
-          min-height: 240mm;
-          print-color-adjust: exact;
-          -webkit-print-color-adjust: exact
+          min-height: 260mm;
         }
-      
+
         .hero h1 {
-          font-size: 33pt
+          font-size: 29pt;
+          line-height: 1.45;
+          margin: 22mm 0 8mm;
         }
-      
+
         .hero .intro {
-          font-size: 13pt
+          font-size: 12pt;
+          line-height: 1.8;
         }
-      
+
+        .eyebrow {
+          font-size: 8pt;
+          margin-bottom: 3mm;
+        }
+
         h2 {
-          font-size: 22pt
+          font-size: 19pt;
+          line-height: 1.4;
+          margin: 2mm 0 5mm;
         }
-      
-        p,ul {
+
+        h3 {
           font-size: 10.5pt;
-          line-height: 1.85
+          line-height: 1.5;
+          margin: 5mm 0 2mm;
+          break-after: avoid;
         }
-      
-        .card,.result,th {
-          print-color-adjust: exact;
-          -webkit-print-color-adjust: exact
+
+        p, ul {
+          font-size: 9.5pt;
+          line-height: 1.65;
+          margin-top: 0;
+          margin-bottom: 3mm;
         }
-      
-        .result,.card,table,.job {
-          break-inside: avoid
+
+        .lead {
+          font-size: 12pt;
+          line-height: 1.7;
         }
-      
+
+        ul {
+          padding-left: 5mm;
+        }
+
+        li {
+          padding: 0.6mm 0;
+        }
+
+        .project-head {
+          gap: 5mm;
+        }
+
+        .number {
+          font-size: 36pt;
+        }
+
+        .role {
+          font-size: 9pt;
+          padding-bottom: 3mm;
+          margin-bottom: 4mm;
+        }
+
+        table {
+          font-size: 9pt;
+          line-height: 1.6;
+          margin-top: 3mm;
+        }
+
+        th, td {
+          padding: 2.5mm 2mm;
+        }
+
+        .result {
+          margin-top: 5mm;
+          padding: 4mm 5mm;
+        }
+
+        .result h3 {
+          margin: 0 0 2mm;
+        }
+
+        .result p {
+          margin: 0;
+        }
+
         .footer {
-          margin-top: 22px
+          margin-top: 5mm;
+          padding-top: 3mm;
+          font-size: 8pt;
+          break-before: avoid;
+          page-break-before: avoid;
         }
-      
+
+        .grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 4mm;
+        }
+
+        .card {
+          padding: 4mm;
+        }
+
+        .card p, .job p, .small {
+          font-size: 9.5pt;
+          line-height: 1.65;
+        }
+
+        .job {
+          margin-bottom: 5mm;
+        }
+
+        .date, .note {
+          font-size: 8pt;
+        }
+
+        .result, .card, table, .job {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+
+        .hero, .card, .result, th {
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+
         a {
-          text-decoration: none
+          text-decoration: none;
         }
-      
-        button {
-          display: none
-        }
-      
-        .note {
-          font-size: 9pt
-        }
-      
       }
     </style>
   </head>
