@@ -1029,5 +1029,10 @@
         </span>
       </div>
     </section>
+    <script id="disable-context-menu">
+      document.addEventListener("contextmenu", function (event) {
+        event.preventDefault();
+      });
+    </script>
   </body>
 </html>
