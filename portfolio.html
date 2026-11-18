@@ -373,8 +373,8 @@
   }
   .career-wrap {
       display:grid;
-      grid-template-columns:.9fr 1.1fr;
-      gap:65px
+      grid-template-columns:minmax(0,1fr);
+      gap:36px
   }
   .career-list {
       border-top:1px solid var(--line)
@@ -453,10 +453,20 @@
   .metric { min-height:0; padding:24px; }
   .metric strong { display:block; color:var(--blue); font-size:clamp(28px,3.6vw,48px); margin-bottom:12px; }
   .subhead { margin:0 0 18px; font-size:25px; }
-  .career-wrap { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); }
   .career-item h4 { font-size:19px; line-height:1.4; margin:0 0 10px; }
   .side-info dd { margin:0; color:#494951; line-height:1.7; font-size:14px; overflow-wrap:anywhere; }
-  .side-info ul, .task-list ul { padding-left:1.25em; }
+  .task-list ul { padding-left:1.25em; }
+  .side-info .education-list { margin:0; padding-left:1.2em; }
+  .side-info .skill-list { list-style:none; margin:0; padding:0; }
+  .skill-list li + li { margin-top:8px; }
+  .skill-list strong { display:block; }
+  @media screen and (min-width:901px) {
+    .side-info .skill-list li {
+      display:grid;
+      grid-template-columns:14em minmax(0,1fr);
+      gap:12px;
+    }
+  }
   .task-list ul li { padding:4px 0; }
   .task-list ul li::before { display:none; }
   .project-copy { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:54px; }
@@ -619,14 +629,14 @@
                 • IT 기획 PM 및 PO로서 요구사항 정의부터 개발 파트너 조율, 검수, 출시 및 사후 개선까지 전 과정 주도<br>
                 • 처리 시간(AHT), 고객 만족도(CSAT), 처리율 등의 핵심 운영 지표 관리 체계 정립
               </p></article></div></div></section>
-    <section class="section" id="career" aria-labelledby="career-heading"><div class="container"><header class="section-header"><h2 class="section-heading" id="career-heading">상세 이력서</h2></header><div class="career-wrap"><div><h3 class="subhead">경력 사항</h3><div class="career-list"><article class="career-item"><div class="period">2026.06. - 현재</div><h4>사단법인 위드헤브론 | 매니저</h4><ul class="task-list">
+    <section class="section" id="career" aria-labelledby="career-heading"><div class="container"><header class="section-header"><h2 class="section-heading" id="career-heading">상세 이력서</h2></header><div class="career-wrap"><div><h3 class="subhead">경력 사항</h3><div class="career-list"><article class="career-item"><div class="period">2026.06. — 현재</div><h4>사단법인 위드헤브론 | 매니저</h4><ul class="task-list">
             <li>고객/후원자 관리 체계(상태 정의, 분류 체계) 개선 및 후원모금</li>
             <li>디지털 캠페인 기획, 랜딩페이지·관리자페이지 구축 및 사용자 소통 여정 관리
             </li>
-          </ul></article><article class="career-item"><div class="period">2025.03. - 2025.12.</div><h4>사회복지법인 월드비전 디지털혁신팀 | 프리랜서</h4><ul class="task-list">
+          </ul></article><article class="career-item"><div class="period">2025.03. — 2025.12.</div><h4>사회복지법인 월드비전 디지털혁신팀 | 프리랜서</h4><ul class="task-list">
             <li>전사 디지털 역량 강화 교육 기획 및 운영 (사용자 숙련도별 커리큘럼 설계)</li>
             <li>MS365 전환 리드 및 가이드라인/FAQ 정비, 사용자 피드백 대응</li>
-          </ul></article><article class="career-item"><div class="period">2021.04. - 2024.09.</div><h4>사회복지법인 월드비전 | 대리 / IT기획·PM</h4><ul class="task-list">
+          </ul></article><article class="career-item"><div class="period">2021.04. — 2024.08.</div><h4>사회복지법인 월드비전 | 대리 / IT기획·PM</h4><ul class="task-list">
             <li><strong>MS365 전환 및 디지털 워크플레이스 구축 (2023.01. - 2023.08.)</strong>:
               <ul>
                 <li>내/외부 소통 채널 파편화 해결을 위한 단계별 마이그레이션 전략 100% 리드</li>
@@ -638,32 +648,20 @@
             <li>사내 자산 관리 전산화 및 ERP 연동</li>
             <li>전사 디지털 전략 수립(AI, DT)</li>
             <li>내부시스템(그룹웨어, 문서중앙화, MS, MS Teams Phone, 통합PC관리) 관리 및 운영</li>
-          </ul></article><article class="career-item"><div class="period">2018.01. - 2021.03.</div><h4>사회복지법인 월드비전 | 대리 / 고객센터 CS매니저 및 CTI 시스템 관리자</h4><ul class="task-list">
+          </ul></article><article class="career-item"><div class="period">2018.01. — 2021.03.</div><h4>사회복지법인 월드비전 | 대리 / 고객센터 CS매니저 및 CTI 시스템 관리자</h4><ul class="task-list">
             <li>차세대 CRM/CTI 도입 Product Owner (Salesforce &amp; Genesys Cloud 연동, 과거 이력 100% 무중단 이관)</li>
             <li>인바운드 및 웹 채널 고객 문의 응대, 정기 VOC 데이터 분석 및 이슈 패턴 정량 진단</li>
             <li>채널별 표준 응대 가이드라인 수립, CTI IVR 시나리오 최적화 및 상담원 대상 시스템 교육</li>
-          </ul></article></div></div><aside class="side-info"><h3>인적사항과 기술 스택</h3><dl><dt class="subheading">성명 / 희망 직무</dt><dd>원은빛 / AI CX Product Owner, CX & CS Operations Manager</dd><dt class="subheading">연락처 / 이메일</dt><dd>010-8829-7492 / 7710hk@gmail.com</dd><dt class="subheading">학력 사항</dt><dd>
-              • 한양사이버대학교 대학원 기계IT융합공학과 석사과정 재학 (2025.03. ~ 현재)<br>
-              • 국가평생교육진흥원 학점은행제 정보통신공학 공학사 (2013.04. ~ 2023.08.)<br>
-              • 한양여자대학교 정보경영과 전문학사 (2010.03 ~ 2013.02.)
-            </dd><dt class="subheading">핵심 보유 스킬</dt><dd>
-            <ul>
-              <li><strong>AI CX &amp; Product Management</strong><ul>
-                <li>VOC 및 고객여정 분석, AI 상담/챗봇 요구사항 정의, 가드레일 및 이관 시나리오 설계<br></li>
-              </ul>
-              </li>
-              <li><strong>CX/CS Operations</strong><ul>
-                <li>채널별 응대 가이드라인 수립, IVR 최적화, 상담 지표(AHT, CSAT) 관리<br></li>
-              </ul>
-              </li>
-              <li><strong>System &amp; Workspace</strong><ul>
-                <li>Salesforce (Service Cloud), Genesys Cloud, CTI/CRM 연동, MS Teams, Microsoft 365<br></li>
-              </ul>
-              </li>
-              <li><strong>Data &amp; Tools</strong><ul>
-                <li>Tableau Bootcamp (입문/Prep Builder 수료), Slack, Notion, Jira</li>
-               </ul>
-              </li>             
+          </ul></article></div></div><aside class="side-info"><h3>인적사항과 기술 스택</h3><dl><dt class="subheading">성명 / 희망 직무</dt><dd>원은빛 / AI CX Product Owner, CX & CS Operations Manager</dd><dt class="subheading">연락처 / 이메일</dt><dd>010-8829-7492 / 7710hk@gmail.com</dd><dt class="subheading">학력 사항</dt><dd><ul class="education-list">
+  <li>한양사이버대학교 대학원 기계IT융합공학과 석사과정 재학 (2025.03. ~ 현재)</li>
+  <li>국가평생교육진흥원 학점은행제 정보통신공학 공학사 (2013.04. ~ 2023.08.)</li>
+  <li>한양여자대학교 정보경영과 전문학사 (2010.03 ~ 2013.02.)</li>
+</ul></dd><dt class="subheading">핵심 보유 스킬</dt><dd>
+            <ul class="skill-list">
+              <li><strong>AI CX &amp; Product Management</strong><span>VOC 및 고객여정 분석, AI 상담/챗봇 요구사항 정의, 가드레일 및 이관 시나리오 설계</span></li>
+              <li><strong>CX/CS Operations</strong><span>채널별 응대 가이드라인 수립, IVR 최적화, 상담 지표(AHT, CSAT) 관리</span></li>
+              <li><strong>System &amp; Workspace</strong><span>Salesforce (Service Cloud), Genesys Cloud, CTI/CRM 연동, MS Teams, Microsoft 365</span></li>
+              <li><strong>Data &amp; Tools</strong><span>Tableau Bootcamp (입문/Prep Builder 수료), Slack, Notion, Jira</span></li>             
                 </ul>
             </dd></dl></aside></div></div></section>
     <section class="section tint" id="projects" aria-labelledby="projects-heading"><div class="container"><header class="section-header"><h2 class="section-heading" id="projects-heading">주요 프로젝트</h2></header>
