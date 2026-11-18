@@ -535,6 +535,41 @@
     .footer a { color:var(--blue); }
   }
 
+  .contact {
+    background:#0b0c10;
+    color:#fff;
+    text-align:center;
+    padding:120px 0 95px;
+  }
+  .contact .eyebrow { color:#8bbaf8; }
+  .contact h2 {
+    font-size:clamp(40px,6vw,74px);
+    letter-spacing:-.075em;
+    line-height:1.18;
+    margin:17px 0 24px;
+  }
+  .contact p { color:#a5a5ad; font-size:18px; line-height:1.7; }
+  .contact .secondary-contact {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:6px 12px;
+    margin-top:22px;
+    color:#a6a6af;
+    font-size:13px;
+  }
+  .contact a:hover { text-decoration:underline; }
+  @media screen and (max-width:700px) {
+    .contact { padding:80px 0 65px; }
+  }
+  @media print {
+    .contact { padding:3mm 0; background:#fff; color:#111; break-inside:avoid; }
+    .contact .eyebrow, .contact .secondary-contact { color:#444; }
+    .contact h2 { font-size:16pt; margin:2mm 0; }
+    .contact p { font-size:10pt; color:#333; }
+    .contact .secondary-contact { margin-top:2mm; }
+    .back-to-top { display:none; }
+  }
   </style>
 </head>
 <body>
@@ -732,11 +767,23 @@
           </ul></div>
         </div>
       </article></div></section>
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="eyebrow">LET’S CONNECT</div>
+        <h2 id="contact-heading">고객 경험에서<br>서비스 개선의 답을 찾습니다.</h2>
+        <p>고객 여정 분석, AI 상담 기획, CX 운영 경험을<br>더 자세히 이야기할 수 있습니다.</p>
+        <div class="secondary-contact">
+          <a href="mailto:7710hk@gmail.com">7710hk@gmail.com</a>
+          <span aria-hidden="true">/</span>
+          <a href="tel:+821088297492">010-8829-7492</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="footer" id="contact">
+  <footer class="footer">
     <div class="container footer-inner">
       <span>원은빛 (Won Eun-bit) | AI CX Product Owner Portfolio</span>
-      <div><a href="tel:+821088297492">010-8829-7492</a> · <a href="mailto:7710hk@gmail.com">7710hk@gmail.com</a></div>
+      <a class="back-to-top" href="#home">맨 위로 ↑</a>
     </div>
   </footer>
   <script>
